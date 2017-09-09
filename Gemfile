@@ -36,6 +36,12 @@ gem 'jbuilder', '~> 2.5'
 # Authentication, Read more: https://github.com/plataformatec/devise
 gem 'devise'
 
+# jQuery js framework
+gem 'jquery-rails'
+
+# CSS/JS Framework, Read more: https://github.com/twbs/bootstrap-rubygem
+gem 'bootstrap'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
