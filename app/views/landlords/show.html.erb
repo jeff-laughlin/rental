@@ -1,0 +1,13 @@
+<h1>Landlord</h1>
+
+<h3>Company</h3>
+<p><%= @landlord.company %></p>
+
+<h3>Properties</h3>
+<% @properties.each do |property| %>
+  <h4><%= property.address_1 %></h4>
+  <% if property.address_2.present? %><p><%= property.address_2 %></p><% end %>
+  <p><%= property.city %></p>
+  <p><%= property.state %></p>
+  <p><%= property.country %></p>
+<% end %>
