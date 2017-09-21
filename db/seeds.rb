@@ -9,5 +9,13 @@
 l_1 = Landlord.create(company: 'Jeffs Rental')
 l_2 = Landlord.create(company: 'Kyles Rental')
 
-u = User.create(email: 'kyle@email.com', password: 'dogdogdog', password_confirmation: 'dogdogdog', role: l_2)
-u = User.create(email: 'jeff@email.com', password: 'catcatcat', password_confirmation: 'catcatcat', role: l_2)
+u = User.create(email: 'kyle@email.com', password: 'dogdogdog', password_confirmation: 'dogdogdog', role: l_1)
+u = User.create(email: 'jeff@email.com', password: 'catcatcat', password_confirmation: 'catcatcat', role: l_1)
+
+['A', 'B', 'C', 'D', 'E'].each do |number|
+  single_family = true
+  if number == 'B' || number == 'D'
+    single_family = false
+  end
+  Property.create(address_1: "#{number} St.", city: 'Lincoln', state: 'NE', single_family: single_family, landlord: l_1)
+end
