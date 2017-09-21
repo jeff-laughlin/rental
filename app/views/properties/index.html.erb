@@ -1,0 +1,19 @@
+<div class="container">
+  <h1><%= @landlord.company %></h1>
+  <%= link_to "Add Property", new_property_path, class: 'btn btn-primary' %>
+
+  <% @properties.each do |property| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-7">
+            <span class="glyphicon glyphicon-home"></span> <%= property.address_1 %>
+          </div>
+          <div class="col-sm-5">
+            Health Checkout: <span class="glyphicon glyphicon-ok"></span> Show more
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :landlords
   resources :tenants
+  resources :properties
 end
