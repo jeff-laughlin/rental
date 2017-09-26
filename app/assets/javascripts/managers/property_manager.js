@@ -1,6 +1,5 @@
 var property_manager = property_manager || (function()
 {
-  console.log('hello')
 
   return {
     // listen for interaction
