@@ -10,7 +10,6 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    byebug
     @property = Property.new(property_params)
     @property.landlord = current_user.role
     if @property.save
