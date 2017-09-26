@@ -1,19 +1,74 @@
-<div class="container">
-  <h1><%= @landlord.company %></h1>
-  <%= link_to "Add Property", new_property_path, class: 'btn btn-primary' %>
+<div class="container properties">
+  <div class="pages-header">
+    <span class="left">properties</span>
+    <%= link_to "Add Property", new_property_path, class: 'right btn btn-secondary' %>
+  </div>
 
   <% @properties.each do |property| %>
-    <div class="panel panel-default">
-      <div class="panel-body">
+    <div class="card full">
         <div class="row">
-          <div class="col-sm-7">
-            <span class="glyphicon glyphicon-home"></span> <%= property.address_1 %>
+          <div class="col-sm-6">
+            <% if property.single_family %>
+              <i class="fa fa-home fa-3x"></i>
+            <% else %>
+              <i class="fa fa-building fa-3x"></i>
+            <% end %>
+              <div class="address-wrapper">
+                <span class="address"><%= property.address_1 %></span><br>
+                <span><%= property.city %>, <%= property.state %></span>
+              </div>
           </div>
-          <div class="col-sm-5">
-            Health Checkout: <span class="glyphicon glyphicon-ok"></span> Show more
+          <div class="col-sm-3">
+            <div class="status-wrapper text-center">
+              <i class="fa fa-check fa-2x"></i></br>
+              Status Good!
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="details right" id="details" data-id="<%= property.id %>">
+              <span id="details_prompt">show details</span> <i class="fa fa-chevron-down"></i>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="card units hidden" id="units_<%= property.id %>">
+      <div class="unit">
+        <div class="row">
+          <div class="col-sm-6">
+            <i class="fa fa-key"></i> Apt. 100
+          </div>
+          <div class="col-sm-4">
+            Rent Due: 11/1
+          </div>
+          <div class="col-sm-2 status">
+            <i class="fa fa-check fa-lg right"></i>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="unit">
+        <div class="row">
+          <div class="col-sm-6">
+            <i class="fa fa-key"></i> Apt. 101
+          </div>
+          <div class="col-sm-4">
+            Rent Due: 11/15
+          </div>
+          <div class="col-sm-2 status">
+            <i class="fa fa-check fa-lg right"></i>
           </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
+<%= javascript_tag do %>
+  $(document).ready(function()
+  {
+    // listen for interaction
+    // --
+    property_manager.listen();
+  })
+<% end %>
