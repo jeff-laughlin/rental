@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
 
   def index
     @landlord = current_user.role
-    @properties = @landlord.properties
+    @properties = @landlord.properties.includes(:units)
   end
 
   def new
@@ -17,6 +17,12 @@ class PropertiesController < ApplicationController
     else
       render :new
     end
+  end
+
+  # properties/:id
+  def show
+    @property = Property.find(params[:id])
+    @units = @property.units
   end
 
   private

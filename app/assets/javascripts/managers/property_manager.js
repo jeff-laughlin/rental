@@ -7,7 +7,8 @@ var property_manager = property_manager || (function()
     listen : function()
     {
 
-      $('.details').on('click', function(){
+      $('.details').on('click', function(e){
+        e.preventDefault();
         var details_prompt = $(this).children('#details_prompt').first();
         var chevron = $(this).children('.fa').first();
         var id = $(this).data('id');

@@ -1,0 +1,26 @@
+<div class="container properties">
+  <h1><%= @property.name || @property.address_1 %></h1>
+
+
+  <div class="pages-header">
+    <span class="left">units</span>
+    <%= link_to "Add Unit", new_property_unit_path(@property.id), class: 'right btn btn-secondary' %>
+  </div>
+
+  <% @units.each do |unit| %>
+  <a class="card full" href="<%= property_unit_path(@property.id, unit.id) %>">
+      <div class="row">
+        <div class="col-sm-6">
+          <i class="fa fa-key"></i> <%= unit.name %>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-3">
+          <i class="fa fa-check right"></i>
+        </div>
+    </div>
+  </a>
+  <% end %>
+
+</div>
