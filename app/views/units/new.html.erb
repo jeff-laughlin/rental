@@ -1,0 +1,11 @@
+<div class="container">
+
+  <%= form_for ([@property, @unit]) do |f| %>
+    <div class="form-group">
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <%= f.submit 'Add Unit', class: 'btn btn-secondary' %>
+  <% end %>
+</div>
