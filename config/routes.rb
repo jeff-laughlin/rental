@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :landlords
   resources :tenants
+  resources :static
   resources :properties do
     resources :units
   end
+  root :to => "static#home"
 end

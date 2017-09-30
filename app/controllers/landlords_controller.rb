@@ -1,6 +1,8 @@
 class LandlordsController < ApplicationController
 
   def new
+    @landlord = Landlord.new
+    @user = User.new
   end
 
   def create
