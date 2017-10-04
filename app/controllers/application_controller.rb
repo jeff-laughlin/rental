@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def after_sign_in_path_for(resource)
-    properties_path
+    if resource.role_type == 'Landlord'
+      properties_path
+    else
+      tenant_path(resource.role.id)
+    end
   end
 end
