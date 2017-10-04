@@ -7,9 +7,7 @@ class TenantsController < ApplicationController
   end
 
   def show
-    #  @current_tenant = Tenant.find(1)
-        @current_tenant = Tenant.find(params[:id])
-        @landlord = Landlord.find(@current_tenant.user_id)
+    @tenant = Tenant.find(params[:id])
   end
 
   def edit
